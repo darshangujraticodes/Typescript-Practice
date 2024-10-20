@@ -68,3 +68,5 @@ const createUser2 = ({ name, email, isPaid }): {} => {
 // there while calling it has accepted any value
 
 createUser2({ name: 4, email: 5, isPaid: "true" });
+
+// unique alisaases
