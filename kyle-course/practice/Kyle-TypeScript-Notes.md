@@ -14,4 +14,6 @@
 
 1. (linux, mac) -> `sudo npm install -g typescript` / (windows) -> `npm install -g typescript` [note -g denote global installation]
 2. `tsc -v` (to know version)
-3. tsc also create tscConfig file which has option to make your type code more secure in coding application -> (`npm tsc --init`)
+3. tsc also create tscConfig file which has option to make your type code more secure in coding application -> (`npx tsc --init`) it will created tscConfig file for code execution with required confirgration.
+4. To run typescript file `npx tsc filename.ts` this command will transpile ts code into js code but to restrict only valid get converted in to js code use this command while running file `npx tsc filename.ts --noEmitOnError`
+5. You can create tsc file through multiple different types of bundler recommended is vite
