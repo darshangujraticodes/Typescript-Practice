@@ -51,17 +51,24 @@ console.log(stringVal);
 
 // object declaration in typescript
 
-const object1: {
+// this type declaration has limit it need to be declared individually and for creating new object it need to redeclare again which is exagareaating same code multiple times
+
+// To solve this issue typescript has feature of object interface in this you create one schema interface modal and replicate it for all other projects.
+
+// note name convention in typpe of typescript is CamelCase
+
+type ObjectTypes = {
   studentName: string;
   roll_no: number;
   field: string;
   age: number;
   gender: string;
   isPrivate: boolean;
-
   // when any property is added externally or optional we decalare its type in (key?:value)
   collegeName?: string;
-} = {
+};
+
+const object1: ObjectTypes = {
   studentName: "Darshan",
   roll_no: 1,
   field: "Science",
@@ -73,3 +80,92 @@ const object1: {
 object1.collegeName = "Vartak College";
 
 console.log(object1);
+
+// eg 2
+
+// now this type can decalre to multiple objects
+// it is also helpful in nested object data eg
+
+type PersonObjectType = {
+  name: string;
+  gender: string;
+  age: number;
+  isGraduate: boolean;
+  profession?: string;
+  friends: string[];
+  address: {
+    city: string;
+    pincode: number;
+    location: string;
+  };
+};
+
+// interface is the new feature which was released it is simialr to types but has restriction it can only applied to objects only
+// interface is declare in following format
+
+// Note it uses keyword interface and does not have equal '=' directly curly braces and key types inside it
+interface PersonInterface {
+  name: string;
+  gender: string;
+  age: number;
+  isGraduate: boolean;
+  profession?: string;
+  friends: string[];
+  address: {
+    city: string;
+    pincode: number;
+    location: string;
+  };
+}
+
+const person1: PersonObjectType = {
+  name: "Darshan",
+  gender: "Male",
+  age: 25,
+  isGraduate: true,
+  friends: ["sahil", "shiva", "sagar"],
+  address: {
+    city: "Mumbai",
+    pincode: 400047,
+    location: "Premiere IT Park Dollar Street , Andheri East ",
+  },
+};
+
+const person2: PersonObjectType = {
+  name: "Shreya",
+  gender: "Female",
+  age: 18,
+  isGraduate: false,
+  profession: "Student",
+  friends: ["Vaishali", "Shrutika", "Ferrini"],
+  address: {
+    city: "Bangalore",
+    pincode: 530068,
+    location: "Royal Park Building Ramdas Road Banglore",
+  },
+};
+
+const person3: PersonInterface = {
+  name: "Sagar",
+  gender: "Male",
+  age: 35,
+  isGraduate: true,
+  profession: "SEO Manager",
+  friends: ["Vaishali", "Rohan", "Ferrini"],
+  address: {
+    city: "Pune",
+    pincode: 411005,
+    location: "Royal Park Building Ramdas Road Pune",
+  },
+};
+
+console.log(
+  person1,
+  person1.name,
+  person2,
+  person2.profession,
+  person3,
+  person3.address.pincode
+);
+
+// It is personal whether to use type or interface but type is industry recommended format developer follow
