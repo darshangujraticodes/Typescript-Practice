@@ -17,3 +17,12 @@
 3. tsc also create tscConfig file which has option to make your type code more secure in coding application -> (`npx tsc --init`) it will created tscConfig file for code execution with required confirgration.
 4. To run typescript file `npx tsc filename.ts` this command will transpile ts code into js code but to restrict only valid get converted in to js code use this command while running file `npx tsc filename.ts --noEmitOnError`
 5. You can create tsc file through multiple different types of bundler recommended is vite
+
+### TypeScript TSConfig File
+
+1. It is consist bunch of rules which typescript compiler follower while executing tsc code.
+2. TsConfig file has multiple protocols
+   a. compiler options - which define use of which js version, targeting js version, access lib
+   b. Bundler mode - which defines protocols and rules eg noEmitOnError it will not generate js code if tsc file has error tsc will not generate js code.
+   c. Linting - it is use to debug error in code most usefule option is ` "strict" : true` to bind code to follow defined methods of coding.
+3.
