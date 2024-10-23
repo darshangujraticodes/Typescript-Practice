@@ -70,3 +70,5 @@ const createUser2 = ({ name, email, isPaid }): {} => {
 createUser2({ name: 4, email: 5, isPaid: "true" });
 
 // unique alisaases
+
+function userSignUp({}) {}

@@ -248,17 +248,35 @@ printPersonData("Harmoine");
 
 // Destructure Parameter to set default parameter if data is not pass
 
+// thiss destructure and default value option is better than undefine
+
 type StudentOptions = {
   house?: string;
-  gender: string;
+  gender?: string;
 };
 
 function printStudenData(
   rollNo: number,
   name: string,
-  { house = "Red", gender = "Male" } = {}
+  { house = "Red", gender = "Male" }: StudentOptions = {}
 ) {
-  console.log(rollNo, name);
+  console.log(rollNo, name, house, gender);
 }
 
 printStudenData(1, "Harry");
+
+printStudenData(1, "Harmoine", { house: "Green", gender: "female" });
+
+// Rest Paramter in function
+
+function sumData(...num: number[]) {
+  console.log(num);
+
+  let add = 0;
+  for (let k of num) {
+    add = k + add;
+  }
+  console.log("Sum of Array Values = ", add);
+}
+
+sumData(1, 2, 5, 52, 45, 5);
