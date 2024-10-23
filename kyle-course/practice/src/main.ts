@@ -168,4 +168,47 @@ console.log(
   person3.address.pincode
 );
 
-// It is personal whether to use type or interface but type is industry recommended format developer follow
+// It is personal choice whether to use type or interface but type is industry recommended format for developers
+
+// typescript in functions
+
+function sum(a: number, b: number) {
+  return a + b;
+}
+
+sum("43343", "sdsfd"); // it wil give error because paramter data type is already defined which is number only
+
+sum(45, 78);
+
+// now we can also define type of return statement in function of tsc but it is not recommended to provide type of return statemnt in funciton example is below
+
+// before curly braces i have explicitly define number datatype to return statement and now if function will return string or any other form of data it will show up error example below
+// But it is not recommended to declare explicitly but depend on the use case you can use to maintain code functionality.
+
+function subtract(num1: number, num2: number): string {
+  let res = num1 - num2;
+
+  return res;
+}
+
+subtract(85, 96);
+
+//  passing object parameter in functions
+
+function personData(person: { name: string }) {
+  return person.name;
+}
+
+// this will give proper output but if we add key argument of obejct in calling function it will show Up error because declare function has only 1 key parameter which is name. which is unique behaviour of object as parameter
+
+personData({ name: "darshan" });
+
+personData({ name: "Harry", profession: "student" });
+
+// but if we declare object seapratly and pass it on to function argument it not show up error
+
+const studentInfo = { name: "Hermione", age: 20, profession: "Student" };
+
+personData(studentInfo);
+
+// this is what unique behaviour of object while passing data as argument in so always declare object separatly
