@@ -243,3 +243,22 @@ const moreInfo = { age: 24, profession: "student", hobby: "reading books" };
 printPersonData("Ron Weasly", moreInfo);
 
 printPersonData("Harmoine");
+
+// -----------
+
+// Destructure Parameter to set default parameter if data is not pass
+
+type StudentOptions = {
+  house?: string;
+  gender: string;
+};
+
+function printStudenData(
+  rollNo: number,
+  name: string,
+  { house = "Red", gender = "Male" } = {}
+) {
+  console.log(rollNo, name);
+}
+
+printStudenData(1, "Harry");
