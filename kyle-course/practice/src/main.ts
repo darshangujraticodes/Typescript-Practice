@@ -355,4 +355,44 @@ const todo1: TodoType = {
 
 console.log(todo1);
 
+// also can combine different objects as union
+
+type ComboData = TodoTaskData | PersonData;
+
+type TodoTaskData = {
+  taskName: string;
+  type: "Important" | "Urgent" | "Ignored" | "Delegate";
+};
+
+type PersonData = {
+  personName: string;
+  department: string;
+};
+
+const todoDetails: ComboData = {
+  taskName: "Processing Salary",
+  personName: "Akash",
+  department: "Accounts",
+  type: "Important",
+};
+
+console.log(todoDetails);
+
 // hover on tasktype you will get "string | undefine" which is union
+
+//  Typescript Intersection
+
+type Person = {
+  name: string;
+  age: number;
+};
+
+type personWithID = Person & { id: number };
+
+const personIntersectionInfo: personWithID = {
+  name: "Darshan",
+  age: 18,
+  id: 4234234,
+};
+
+console.log("Intersection data", personIntersectionInfo);
