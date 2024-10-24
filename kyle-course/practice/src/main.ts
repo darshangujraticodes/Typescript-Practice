@@ -252,31 +252,107 @@ printPersonData("Harmoine");
 
 type StudentOptions = {
   house?: string;
-  gender?: string;
+  hobby?: string;
 };
 
-function printStudenData(
+function printStudentData(
   rollNo: number,
   name: string,
-  { house = "Red", gender = "Male" }: StudentOptions = {}
+  gender: string,
+  { house = "Red", hobby = "Playing Chess" }: StudentOptions = {}
 ) {
-  console.log(rollNo, name, house, gender);
+  console.log(rollNo, name, gender, house, hobby);
 }
 
-printStudenData(1, "Harry");
+printStudentData(1, "Harry", "Male");
 
-printStudenData(1, "Harmoine", { house: "Green", gender: "female" });
+printStudentData(2, "Harmoine", "female", {
+  house: "Green",
+  hobby: "Reading Books",
+});
 
 // Rest Paramter in function
 
-function sumData(...num: number[]) {
-  console.log(num);
+function sumData(...nums: number[]) {
+  console.log(nums);
 
   let add = 0;
-  for (let k of num) {
+  for (let k of nums) {
     add = k + add;
   }
   console.log("Sum of Array Values = ", add);
 }
 
 sumData(1, 2, 5, 52, 45, 5);
+
+//  callback function declaration using typescript
+
+function sumOfInputNumber(
+  n1: number,
+  n2: number,
+  // note here after arrow define the data type of return statments
+  sumCallBack: (sum: number) => void
+) {
+  sumCallBack(n1 + n2);
+}
+
+sumOfInputNumber(45, 96, (sum) => {
+  console.log("call back function sum = ", sum);
+});
+
+// example 2
+
+// here parameter is accepted in string but while returning output it should be in number
+type PrintCallBackFunc = (age: string) => number;
+
+function fData(age: string): number {
+  return parseInt(age);
+}
+
+fData("54");
+console.log();
+
+// modifier and its types
+
+// optional Modifier
+
+// union modifier
+
+// When we want to store data of multiple type in single variable we take use of unione and in this we will explicitly mention variable can store given type of data in variable but form this multiple only one type of data can be store at a time
+
+// it is denoted by pipe(|) which also denote or operator
+
+let st_id: string | number = "Darsh";
+
+st_id = 7;
+
+// but this will lead to error becoz boolean is not defined while declaration
+st_id = true;
+
+console.log("union modifier = ", st_id, typeof st_id);
+
+// if you notice under the hood optional operator also use union
+// eg are as follows
+
+// union is can only be applied in types and cannot be implement in interface
+
+// union has the feature of not only defining data type but also different values from options ex has follows
+
+type TodoType = {
+  id: string | number;
+  name?: string;
+  status: "Completed" | "Incomplete" | "Stuck";
+  taskType?: string;
+};
+
+const todo1: TodoType = {
+  id: 423432,
+  name: "Harry Parker",
+  // status: "rwerwer", -> this will give u error becoz it won't allow values from not defined options in union
+  status: "Completed",
+  taskType: "Important",
+};
+
+console.log(todo1);
+
+// hover on tasktype you will get "string | undefine" which is union
