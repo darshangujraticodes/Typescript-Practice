@@ -204,7 +204,7 @@ printName("Harry Potter");
 function subtract(num1: number, num2: number): string {
   let res = num1 - num2;
 
-  return res;
+  return res.toString();
 }
 
 subtract(85, 96);
@@ -396,3 +396,28 @@ const personIntersectionInfo: personWithID = {
 };
 
 console.log("Intersection data", personIntersectionInfo);
+
+// readonly is used when you dont want to allow to modify object key values
+// example shown below
+
+type PersonDataType = {
+  readonly id: number; // sp now you cannot edit id value
+  name: string;
+  age: number;
+};
+
+const data: PersonDataType = {
+  id: 878,
+  name: "Darshan",
+  age: 25,
+};
+
+data.id = 323224; // show up error cannot assign new value becoz it is readonly property
+
+const readOnlyArray: readonly number[] = [5, 87, 54, 468, 465, 4, 46546, 46];
+
+readOnlyArray.push(78);
+
+console.log(readOnlyArray);
+
+// keyof property
