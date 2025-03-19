@@ -79,13 +79,13 @@ const studentInfo = {
   courseWishlist: ["nodejs", "nextjs", "typescript"],
 };
 
-function courseAdmission(studentData: Student): Student {
-  console.log("object return  function ", studentData);
+// function courseAdmission(studentData: Student): Student {
+//   console.log("object return  function ", studentData);
 
-  return studentInfo;
-}
+//   return studentInfo;
+// }
 
-courseAdmission(studentInfo);
+// courseAdmission(studentInfo);
 
 // object types it is handled using 2 format : a] types b] interface
 
@@ -125,3 +125,78 @@ const student2: studentObjectTypes = {
 };
 
 console.log(student1, student2);
+
+/*
+
+industry standard used is object type declaration is insterface 
+
+interface vs types
+1. Interface follows reopening structure format means iterface can be again redeclare to add further extra object property types which is not possible in types
+2. Interface also provide extends property which inherit old interface data in new interface which is not possible in types aliasis.
+
+
+Public and Private
+
+
+
+*/
+
+class User {
+  email: string;
+  name: string;
+
+  readonly city: string = "Mumbai";
+  private readonly contact = "9685748595";
+
+  constructor(email: string, name: string) {
+    this.email = email;
+    this.name = name;
+  }
+}
+
+const dg = new User("dga@gmail.com", "darsh");
+dg.city;
+// dg.contact;
+
+class Student {
+  readonly city: string = "Mumbai";
+  private readonly contact = "9685748595";
+
+  constructor(public email: string, public name: string) {}
+}
+
+const stud = new Student("dga@gmail.com", "darsh");
+stud.city;
+
+/*
+
+Generics 
+
+*/
+
+const addTwoData = (num1: number, num2: number): number => {
+  return num1 + num2;
+};
+
+addTwoData(45, 85);
+
+// generics
+
+function identityThree<T>(val: T): T {
+  return val;
+}
+
+identityThree("darshan");
+
+identityThree("darshan");
+identityThree(45);
+identityThree(false);
+
+// array generics
+function getProducts<T>(product: T[]): T {
+  return product[3];
+}
+
+const newArrayTemp = <T>(val: T[]): T => {
+  return val[3];
+};
