@@ -8,9 +8,9 @@ interface nameListProps {
 const CharachterNameList = ({ nameList }: nameListProps) => {
   return (
     <div className="mt-4">
-      <h4>Story Charachter</h4>
-      {nameList?.map((item, index) => (
-        <span key={index}>
+      <h4>Film Charachter</h4>
+      {nameList?.map((item) => (
+        <span key={item.first}>
           {item.first} {item.last}
           <br />
         </span>
