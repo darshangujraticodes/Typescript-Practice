@@ -1,6 +1,6 @@
-import { personProp } from "./Types/PersonProps";
+import { PersonProp } from "./Types/PersonProps";
 
-const ActorName = ({ name }: personProp) => {
+const ActorName = ({ name }: PersonProp) => {
   return (
     <div>
       {name.first} {name.last}

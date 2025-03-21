@@ -9,6 +9,9 @@ import ButtonClickEvent from "./Components/ButtonClickEvent";
 import InputChangeEvent from "./Components/InputChangeEvent";
 import FormEvent from "./Components/FormEvent";
 import StyleProp from "./Components/StyleProp";
+import LoggedIn from "./Components/state/LoggedIn";
+import AuthUser from "./Components/state/AuthUserData";
+import AuthUserData from "./Components/state/AuthUserData";
 
 function App() {
   const actor1 = {
@@ -96,7 +99,7 @@ function App() {
           <br /> <br />
           <FormEvent />
           <br />
-          <br />
+          <h4>Style Props</h4>
           <StyleProp
             styles={{
               padding: "10px 20px",
@@ -106,6 +109,12 @@ function App() {
             }}
           />
         </div>
+
+        <h4 className="mt-3">Typescript in React Hooks</h4>
+
+        {/* <LoggedIn userName="Sahil" /> */}
+
+        <AuthUserData />
       </section>
     </>
   );

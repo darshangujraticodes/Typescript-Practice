@@ -3,6 +3,6 @@ export interface NameProp {
   last: string;
 }
 
-export interface personProp {
+export interface PersonProp {
   name: NameProp;
 }
