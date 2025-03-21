@@ -1,8 +1,7 @@
+import { NameProp } from "./Types/PersonProps";
+
 interface nameListProps {
-  nameList: {
-    first: string;
-    last: string;
-  }[];
+  nameList: NameProp[];
 }
 
 const CharachterNameList = ({ nameList }: nameListProps) => {

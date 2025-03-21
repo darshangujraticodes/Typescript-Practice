@@ -5,6 +5,10 @@ import CharachterNameList from "./Components/CharachterNameList";
 import Status from "./Components/Status";
 import Heading from "./Components/Heading";
 import ReactNodeComp from "./Components/ReactNodeComp";
+import ButtonClickEvent from "./Components/ButtonClickEvent";
+import InputChangeEvent from "./Components/InputChangeEvent";
+import FormEvent from "./Components/FormEvent";
+import StyleProp from "./Components/StyleProp";
 
 function App() {
   const actor1 = {
@@ -49,16 +53,23 @@ function App() {
 
   return (
     <>
-      <section className="mt-5 container">
+      <section className="my-5 container">
         <h1 className="text-center mb-2">React + TypeScript</h1>
 
         <div className="mt-3">
+          {/* String prop */}
           <ActorName name={actor1} />
-          <ActorName name={actor2} />
+          <GreetMessg name="Darsh" isLoggedIn={true} messgCount={10} />
+          <GreetMessg name="Sahil" isLoggedIn={true} />
+          <GreetMessg name="Vijay" isLoggedIn={false} />
+          {/*  string array */}
           <ActorList castingActorsName={castingActorList} />
+          {/* Object array  */}
           <CharachterNameList nameList={storyCharachterNameList} />
+          {/* Union (|) Or Operator */}
           <Status status="loading" />
           <br />
+          {/* children prop */}
           Passing String value in Children Prop :
           <Heading> Heading Tag Children Data </Heading>
           <br />
@@ -67,6 +78,33 @@ function App() {
           <ReactNodeComp>
             <Heading> Subhead Tag Children Data</Heading>
           </ReactNodeComp>
+        </div>
+
+        <div className="mt-4">
+          <h4>Events in Javascript</h4>
+          <ButtonClickEvent
+            handleClick={(e) => {
+              console.log("Button Clicked!", e);
+            }}
+          />
+          <br /> <br />
+          <InputChangeEvent
+            handleInputChange={(e) => {
+              console.log("input Tag value : ", e.target.value);
+            }}
+          />
+          <br /> <br />
+          <FormEvent />
+          <br />
+          <br />
+          <StyleProp
+            styles={{
+              padding: "10px 20px",
+              borderRadius: "10px",
+              backgroundColor: "#262626",
+              color: "#f5f5f5",
+            }}
+          />
         </div>
       </section>
     </>

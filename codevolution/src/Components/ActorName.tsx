@@ -1,9 +1,4 @@
-interface personProp {
-  name: {
-    first: string;
-    last: string;
-  };
-}
+import { personProp } from "./Types/PersonProps";
 
 const ActorName = ({ name }: personProp) => {
   return (

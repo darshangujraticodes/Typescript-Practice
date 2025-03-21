@@ -1,10 +1,10 @@
 interface greetProps {
   name: string;
-  messgCount: number;
+  messgCount?: number;
   isLoggedIn: boolean;
 }
 
-const GreetMessg = ({ name, messgCount, isLoggedIn }: greetProps) => {
+const GreetMessg = ({ name, messgCount = 0, isLoggedIn }: greetProps) => {
   return (
     <div>
       {isLoggedIn ? (
@@ -12,7 +12,7 @@ const GreetMessg = ({ name, messgCount, isLoggedIn }: greetProps) => {
           Welcome {name}, you have {messgCount} unread messages.
         </p>
       ) : (
-        <p>Welcome Guest</p>
+        <p>Welcome {name}, As Guest</p>
       )}
     </div>
   );
