@@ -12,8 +12,14 @@ import StyleProp from "./Components/StyleProp";
 import LoggedIn from "./Components/state/LoggedIn";
 import AuthUser from "./Components/state/AuthUserData";
 import AuthUserData from "./Components/state/AuthUserData";
+import ReducerHook from "./Components/ReducerHook";
+import useTheme from "./context/ThemeContext";
 
 function App() {
+  const { darkMode, setDarkMode } = useTheme();
+
+  console.log(darkMode);
+
   const actor1 = {
     first: "Harry",
     last: "Potter",
@@ -115,6 +121,15 @@ function App() {
         {/* <LoggedIn userName="Sahil" /> */}
 
         <AuthUserData />
+
+        <ReducerHook />
+
+        <h4 className="mt-3">Context Api</h4>
+
+        <p>Current Mode : {darkMode ? "Dark Mode" : "Light Mode"}</p>
+        <button onClick={() => setDarkMode(!darkMode)}>
+          Switch Theme Mode
+        </button>
       </section>
     </>
   );
