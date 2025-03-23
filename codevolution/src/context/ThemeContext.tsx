@@ -6,8 +6,7 @@ type ThemeContextProviderProps = {
 
 type DarkModeContextType = {
   darkMode: boolean | null;
-  setDarkMode?: React.Dispatch<React.SetStateAction<boolean>> | undefined;
-  // setDarkMode?: () => ;
+  setDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export const ThemeContext = createContext({} as DarkModeContextType);
