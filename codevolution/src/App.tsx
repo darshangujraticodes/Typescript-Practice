@@ -12,6 +12,7 @@ import StyleProp from "./Components/StyleProp";
 import AuthUserData from "./Components/state/AuthUserData";
 import ReducerHook from "./Components/ReducerHook";
 import useTheme from "./context/ThemeContext";
+import DomRef from "./Components/ref/DomRef";
 
 function App() {
   const { darkMode, setDarkMode } = useTheme();
@@ -128,6 +129,8 @@ function App() {
         <button onClick={() => setDarkMode(!darkMode)}>
           Switch Theme Mode
         </button>
+
+        <DomRef />
       </section>
     </>
   );

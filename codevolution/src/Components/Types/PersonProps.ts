@@ -6,3 +6,7 @@ export interface NameProp {
 export interface PersonProp {
   name: NameProp;
 }
+
+export type ChildrenProp = {
+  children: React.ReactNode;
+};
